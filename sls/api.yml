@@ -1,0 +1,45 @@
+createEmployee:
+  handler: src/api/create-employee/index.handler
+  memorySize: 512
+  description: Creates employee in Honeydew ecosystem
+  events:
+    - http:
+        path: "create"
+        method: post
+        cors: true
+getEmployee:
+  handler: src/api/get-employee/index.handler
+  memorySize: 512
+  description: Gets employee from Honeydew ecosystem
+  events:
+    - http:
+        path: "{employeeId}"
+        method: get
+        cors: true
+updateEmployee:
+  handler: src/api/update-employee/index.handler
+  memorySize: 512
+  description: Updates employee in Honeydew ecosystem
+  events:
+    - http:
+        path: "update"
+        method: put
+        cors: true
+deleteEmployee:
+  handler: src/api/create-employee/index.handler
+  memorySize: 512
+  description: Creates employee in Honeydew ecosystem
+  events:
+    - http:
+        path: "delete/{employeeId}"
+        method: delete
+        cors: true
+getAllEmployees:
+  handler: src/api/get-employees/index.handler
+  memorySize: 512
+  description: Gets all employees from Honeydew ecosystem
+  events:
+    - http:
+        path: "get-all"
+        method: post
+        cors: true

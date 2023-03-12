@@ -1,0 +1,6 @@
+test:
+  EMPLOYEES_TABLE: honeydew-employee-service-table-test
+  ENVIRONMENT: TEST
+prod:
+  EMPLOYEES_TABLE: honeydew-employee-service-table-prod
+  ENVIRONMENT: PRODUCTION
