@@ -1,3 +1,6 @@
+dev:
+  EMPLOYEES_TABLE: honeydew-employee-service-table-dev
+  ENVIRONMENT: DEV
 test:
   EMPLOYEES_TABLE: honeydew-employee-service-table-test
   ENVIRONMENT: TEST

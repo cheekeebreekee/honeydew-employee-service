@@ -43,11 +43,11 @@ custom:
   webpack:
     packager: "npm"
     keepOutputDirectory: true
-  customDomain:
-    domainName: "testapi.honeydewcare.com"
-    basePath: "employees"
-    stage: ${self:provider.stage}
-    createRoute53Record: true
+  # customDomain:
+  #   domainName: "testapi.honeydewcare.com"
+  #   basePath: "employees"
+  #   stage: ${self:provider.stage}
+  #   createRoute53Record: true
 
 functions:
   - ${file(./sls/api.yml)}
@@ -58,7 +58,7 @@ resources:
 plugins:
   - serverless-prune-plugin
   - serverless-webpack
-  - serverless-domain-manager
+  # - serverless-domain-manager
   - serverless-plugin-lambda-dead-letter
 
 package:

@@ -1,18 +1,22 @@
 import { DynamoDB, UpdateItemCommandInput } from "@aws-sdk/client-dynamodb";
 import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
-import { config, DynamoDBService } from "../../../../../honeydew-shared/src";
 import {
   Provider,
   CareCoordinator,
   EnrollmentCoordinator,
   Administrator,
-} from "../../../../../honeydew-shared/src/types/Employee";
-import { logError, logInfo } from "../../../../../honeydew-shared/src/utils/logger";
+  logError,
+  logInfo,
+  config,
+} from "honeydew-shared";
+import { DynamoDBService } from "../index";
 
 const dynamoDb = new DynamoDB({});
 
 export const update = async (
-  employeePartial: Partial<Provider | CareCoordinator | EnrollmentCoordinator | Administrator>
+  employeePartial: Partial<
+    Provider | CareCoordinator | EnrollmentCoordinator | Administrator
+  >
 ) => {
   logInfo("Updating employee in DB", employeePartial);
 
@@ -22,7 +26,9 @@ export const update = async (
     throw new Error(message);
   }
 
-  const employee = await DynamoDBService.employees.get(employeePartial.id || "");
+  const employee = await DynamoDBService.employees.get(
+    employeePartial.id || ""
+  );
 
   logInfo("Employee to update", employee);
 
@@ -59,5 +65,8 @@ export const update = async (
 
   const { Attributes } = await dynamoDb.updateItem(query);
 
-  return unmarshall(Attributes as any) as Provider | CareCoordinator | EnrollmentCoordinator;
+  return unmarshall(Attributes as any) as
+    | Provider
+    | CareCoordinator
+    | EnrollmentCoordinator;
 };

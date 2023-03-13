@@ -5,8 +5,9 @@ import {
   Provider,
   EnrollmentCoordinator,
   Administrator,
-  logInfo, logWarn,
-  config
+  logInfo,
+  logWarn,
+  config,
 } from "honeydew-shared";
 
 const dynamoDb = new DynamoDB({});
@@ -16,7 +17,9 @@ export const getAll = async (): Promise<
 > => {
   logInfo("Getting all employees from DB");
 
-  const { Items } = await dynamoDb.scan({ TableName: config.getSharedValue("employeesTableName") });
+  const { Items } = await dynamoDb.scan({
+    TableName: config.getSharedValue("employeesTableName"),
+  });
 
   if (Items) {
     logInfo("Found employees count", { count: Items.length });

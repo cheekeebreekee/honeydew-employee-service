@@ -18,9 +18,7 @@ export const handler = enhancedApiHandler(async (event: Event) => {
   console.log("config", config.store.shared);
   console.log(JSON.stringify(config));
 
-  const employee = await DynamoDBService.employees.get(
-    employeeId
-  );
+  const employee = await DynamoDBService.employees.get(employeeId);
 
   return HttpResponse.success({
     body: employee,

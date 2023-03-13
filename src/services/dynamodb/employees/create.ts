@@ -6,7 +6,7 @@ import {
   EnrollmentCoordinator,
   Administrator,
   logInfo,
-  config
+  config,
 } from "honeydew-shared";
 
 const dynamoDb = new DynamoDB({});

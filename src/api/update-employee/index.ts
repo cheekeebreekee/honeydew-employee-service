@@ -19,9 +19,7 @@ export const handler = enhancedApiHandler(async (event: Event) => {
     Provider | CareCoordinator | EnrollmentCoordinator | Administrator
   > = JSON.parse(event.body as string);
 
-  const updatedEmployee = await DynamoDBService.employees.update(
-    payload
-  );
+  const updatedEmployee = await DynamoDBService.employees.update(payload);
 
   return HttpResponse.success({
     body: updatedEmployee,

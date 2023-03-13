@@ -1,7 +1,6 @@
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
-import { logInfo } from "../../../../../honeydew-shared/src/utils/logger";
-import { config } from "../../../../../honeydew-shared/src/shared";
+import { logInfo, config } from "honeydew-shared";
 
 const dynamoDb = new DynamoDB({});
 
